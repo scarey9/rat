@@ -54,7 +54,7 @@ build_container:
   script:
     - setup_docker
     - cd src/app
-    - chmod +x ../.gitlab-scripts/build_container.sh
+    - chmod +x ../../.gitlab-scripts/build_container.sh
     - ../.gitlab-scripts/build_container.sh rat
     - cd ..
   only:
