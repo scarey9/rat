@@ -42,7 +42,7 @@ precheck:
 
 
 
-build_contractdb_container:
+build_container:
   stage: build_containers
   image: docker:stable-git
   allow_failure: false
@@ -53,7 +53,7 @@ build_contractdb_container:
     DOCKER_TLS_CERTDIR: ""
   script:
     - setup_docker
-    - cd contractdb
+    - cd src/app
     - chmod +x ../.gitlab-scripts/build_container.sh
     - ../.gitlab-scripts/build_container.sh rat
     - cd ..
