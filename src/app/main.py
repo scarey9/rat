@@ -1,8 +1,5 @@
-from fastapi import FastAPI
+if __name__ == "__main__":
 
-app = FastAPI()
+    import uvicorn
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+    uvicorn.run("app:app", reload=True, host="0.0.0.0")
