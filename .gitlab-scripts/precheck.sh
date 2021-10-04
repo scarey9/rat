@@ -1,5 +1,7 @@
 echo "Running precheck"
 
+echo $CI_PROJECT_NAME
+
 export KUBE_LATEST_VERSION="v1.17.3"
 
 apk update \
