@@ -1,8 +1,8 @@
 stages:
   - precheck
+  #- test
   - build_containers
   - security_scan
-  #- test
   #- cyber_accept
   - push_to_nexus
   #- deploy_to_itss
