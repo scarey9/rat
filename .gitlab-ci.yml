@@ -219,18 +219,18 @@ nexusIQeval:
 
 
 
-cyber_accept:
-  stage: cyber_accept
-  allow_failure: false
-  image: docker:stable
-  variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
-  script:
-    - cyber_accept
-  when: manual
-  only:
-    - master
+#cyber_accept:
+#  stage: cyber_accept
+#  allow_failure: false
+#  image: docker:stable
+#  variables:
+#    DOCKER_DRIVER: overlay2
+#    DOCKER_TLS_CERTDIR: ""
+#  script:
+#    - cyber_accept
+#  when: manual
+#  only:
+#    - master
 
 
 
@@ -255,37 +255,37 @@ push_to_nexus:
 
 
 
-deploy_contractdb_to_itss:
-  stage: deploy_to_itss
-  image: docker:stable-git
-  services:
-    - name: docker:19.03.0-dind
-      alias: dind
-  variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
-  script:
-    - setup_docker
-    - chmod +x ./.gitlab-scripts/deploy_server_to_itss.sh
-    - ./.gitlab-scripts/deploy_server_to_itss.sh rat
-  only:
-    - itss
-
-rolling_update_itss:
-  stage: rolling_update_itss
-  image: docker:stable-git
-  services:
-    - name: docker:19.03.0-dind
-  variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
-  script:
-    - setup_docker
-    - chmod +x ./.gitlab-scripts/rolling_update_itss.sh
-    - ./.gitlab-scripts/rolling_update_itss.sh
-  only:
-    - itss
-
+#deploy_contractdb_to_itss:
+#  stage: deploy_to_itss
+#  image: docker:stable-git
+#  services:
+#    - name: docker:19.03.0-dind
+#      alias: dind
+#  variables:
+#    DOCKER_DRIVER: overlay2
+#    DOCKER_TLS_CERTDIR: ""
+#  script:
+#    - setup_docker
+#    - chmod +x ./.gitlab-scripts/deploy_server_to_itss.sh
+#    - ./.gitlab-scripts/deploy_server_to_itss.sh rat
+#  only:
+#    - itss
+#
+#rolling_update_itss:
+#  stage: rolling_update_itss
+#  image: docker:stable-git
+#  services:
+#    - name: docker:19.03.0-dind
+#  variables:
+#    DOCKER_DRIVER: overlay2
+#    DOCKER_TLS_CERTDIR: ""
+#  script:
+#    - setup_docker
+#    - chmod +x ./.gitlab-scripts/rolling_update_itss.sh
+#    - ./.gitlab-scripts/rolling_update_itss.sh
+#  only:
+#    - itss
+#
 
 
 .auto_devops: &auto_devops |
