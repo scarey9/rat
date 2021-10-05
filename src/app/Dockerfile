@@ -20,4 +20,4 @@ RUN pip install -r /usr/src/app/requirements.txt \
 # copy project
 COPY ./src/app /usr/src/app
 
-CMD ["python", "main.py"]
+CMD ["sh", "-c", "piccolo migrations forwards session_auth && piccolo migrations forwards user &&  piccolo migrations new home --auto && piccolo migrations forwards home && python main.py"]

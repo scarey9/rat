@@ -15,7 +15,7 @@ from home.tables import Task
 
 app = FastAPI(
     routes=[
-        Route("/", HomeEndpoint),
+        Route("/piccolo_home/", HomeEndpoint),
         Mount(
             "/admin/",
             create_admin(

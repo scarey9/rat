@@ -9,3 +9,9 @@ class Task(Table):
 
     name = Varchar()
     completed = Boolean(default=False)
+
+class Unit(Table):
+    name = Varchar()
+
+class ProjectLine(Table):
+    name = Varchar()
